@@ -1,0 +1,27 @@
+:root {
+	--black: #000000;
+	--lime: rgb(232, 243, 105);
+	--red: rgb(230, 115, 103);
+	--grey: rgb(243, 243, 243);
+	--white: rgb(251, 251, 241);
+}
+
+html {
+	background-color: var(--white);
+}
+
+h1 {
+	color: var(--black);
+}
+
+.app {
+	margin: 0 auto;
+	padding: 1rem 4rem;
+	max-width: 80rem;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}

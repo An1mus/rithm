@@ -1,0 +1,21 @@
+.list {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.list li {
+	margin-left: 2rem;
+}
+
+.list li a {
+	color: var(--black);
+	text-decoration: none;
+	font-weight: 800;
+	transition: opacity .3s;
+}
+.list li a:hover {
+	opacity: .7;
+}
