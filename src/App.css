@@ -1,9 +1,14 @@
 :root {
 	--black: #000000;
+	--text-grey: #626262;
 	--lime: rgb(232, 243, 105);
 	--red: rgb(230, 115, 103);
 	--grey: rgb(243, 243, 243);
 	--white: rgb(251, 251, 241);
+}
+
+.text-light {
+	color: var(--text-grey);
 }
 
 html {

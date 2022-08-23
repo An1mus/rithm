@@ -1,0 +1,8 @@
+.algorithms {
+	display: flex;
+}
+
+.algorithms .controls {
+	width: 100%;
+	text-align: left;
+}

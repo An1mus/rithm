@@ -1,4 +1,4 @@
-import Algorithms from "./pages/algorithms ";
+import Algorithms from "./pages/algorithms";
 import DataStructures from "./pages/data-structures";
 import Patterns from "./pages/patterns";
 import SystemDesign from "./pages/system-design";

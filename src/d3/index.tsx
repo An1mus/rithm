@@ -7,6 +7,8 @@ const MARGIN = {top: 30, right: 30, bottom: 60, left: 30},
 const BAR_GAP = 3;
 
 export const drawBarChart = (selector: any, data: number[]) => {
+    destroyChart(selector);
+
     const MAX = Math.max(...data);
     const ENTRIES_AMOUNT = data.length;
     const BAR_WIDTH = WIDTH / ENTRIES_AMOUNT;
