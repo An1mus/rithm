@@ -4,7 +4,7 @@ const MARGIN = {top: 30, right: 30, bottom: 60, left: 30},
     WIDTH = 600 - MARGIN.left - MARGIN.right,
     HEIGHT = 600 - MARGIN.top - MARGIN.bottom;
 
-const BAR_GAP = 3;
+const BAR_GAP = 1;
 
 export const drawBarChart = (selector: any, data: number[]) => {
     destroyChart(selector);
@@ -35,14 +35,15 @@ export const drawBarChart = (selector: any, data: number[]) => {
         .attr("height", d => d * BAR_HEIGHT)
         .attr("fill", "#69b3a2");
 
-    rectGroups
-        .append("text")
-        .attr("x", (_, i) => i * BAR_WIDTH_MULTIPLICATOR)
-        .attr("y", HEIGHT)
-        .text(d => d)
-        .attr('text-anchor', 'middle')
-        .attr('dominant-baseline', 'middle')
-        .attr('transform', d => `translate(${BAR_WIDTH_MULTIPLICATOR/2}, 20)`);
+    // x-axis anotation
+    // rectGroups
+    //     .append("text")
+    //     .attr("x", (_, i) => i * BAR_WIDTH_MULTIPLICATOR)
+    //     .attr("y", HEIGHT)
+    //     .text(d => d)
+    //     .attr('text-anchor', 'middle')
+    //     .attr('dominant-baseline', 'middle')
+    //     .attr('transform', d => `translate(${BAR_WIDTH_MULTIPLICATOR/2}, 20)`);
 
 }
 

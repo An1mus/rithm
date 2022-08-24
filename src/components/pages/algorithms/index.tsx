@@ -21,13 +21,25 @@ const Algorithms: React.FC = observer(() => {
 
             <div>
                 <div className="settings">
-                    <input type="text" />
+                    <input
+                        type="text"
+                        value={store.entriesArrayLength}
+                        min={10}
+                        max={1000}
+                        onChange={(e) => store.setEntriesAmount(parseInt(e.target.value) || 0)}
+                    />
                 </div>
                 <div className="algorithms">
                     <button onClick={() => store.applyBubbleSort()}>Bubble</button>
                     <button onClick={() => destroyChart(chart.current)}>Destroy chart</button>
                 </div>
             </div>
+
+            {Object.values(store.sortingState).map((e: any) => <>
+                <p>{e.type}</p>
+                <p>{e.state}</p>
+                <p>{e.time}</p>
+            </>)}
         </section>
 
         <section id={'chart'} ref={chart} />

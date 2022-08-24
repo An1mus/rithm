@@ -2,9 +2,22 @@ import {makeAutoObservable} from "mobx";
 import {createContext, useContext} from "react";
 import {bubbleSort} from "../utils/sorting";
 
+enum SORTING_STATES {
+    IDLE= "Idle",
+    SORTING = "Sorting",
+    COMPLETED = "Completed",
+    ABORTED = "Aborted"
+}
+
+enum SORT_ALGORITHMS {
+    BUBBLE = "Bubble"
+}
+
 class AlgorithmsStore {
-    entriesArrayLength = 100;
+    entriesArrayLength = 10;
     entriesArray: number[] = [];
+
+    sortingState: any = {};
 
     constructor() {
         makeAutoObservable(this)
@@ -12,11 +25,11 @@ class AlgorithmsStore {
         this.fillEntriesArray();
     }
 
-    get entriesAmount () {
-        return this.entriesArrayLength
+    private __addSortType(type: SORT_ALGORITHMS, state: SORTING_STATES, time?: number) {
+        this.sortingState[type] = {type, state, time: time !== undefined ? time : 'Counting'}
     }
 
-    set entriesAmount (value) {
+    setEntriesAmount (value: number) {
         this.entriesArrayLength = value
         this.fillEntriesArray();
     }
@@ -31,8 +44,17 @@ class AlgorithmsStore {
     }
 
     applyBubbleSort () {
-        this.entriesArray = [...bubbleSort(this.entriesArray)];
-        console.log(this.entriesArray);
+        const start = new Date();
+        this.__addSortType(SORT_ALGORITHMS.BUBBLE, SORTING_STATES.SORTING);
+
+        try {
+            this.entriesArray = [...bubbleSort(this.entriesArray)];
+        } catch (e) {
+            this.__addSortType(SORT_ALGORITHMS.BUBBLE, SORTING_STATES.ABORTED)
+        }
+        const end = new Date();
+
+        this.__addSortType(SORT_ALGORITHMS.BUBBLE, SORTING_STATES.COMPLETED, end.getTime() - start.getTime());
     }
 }
 
