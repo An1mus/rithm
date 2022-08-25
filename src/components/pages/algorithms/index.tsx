@@ -32,6 +32,7 @@ const Algorithms: React.FC = observer(() => {
                 <div className="algorithms">
                     <button onClick={() => store.applyBubbleSort()}>Bubble</button>
                     <button onClick={() => store.applyInsertionSort()}>Insertion</button>
+                    <button onClick={() => store.applySelectionSort()}>Selection</button>
                     <button onClick={() => destroyChart(chart.current)}>Destroy chart</button>
                 </div>
             </div>
