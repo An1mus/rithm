@@ -31,15 +31,16 @@ const Algorithms: React.FC = observer(() => {
                 </div>
                 <div className="algorithms">
                     <button onClick={() => store.applyBubbleSort()}>Bubble</button>
+                    <button onClick={() => store.applyInsertionSort()}>Insertion</button>
                     <button onClick={() => destroyChart(chart.current)}>Destroy chart</button>
                 </div>
             </div>
 
-            {Object.values(store.sortingState).map((e: any) => <>
+            {Object.values(store.sortingState).map((e: any, index) => <div key={e.type + index}>
                 <p>{e.type}</p>
                 <p>{e.state}</p>
                 <p>{e.time}</p>
-            </>)}
+            </div>)}
         </section>
 
         <section id={'chart'} ref={chart} />
