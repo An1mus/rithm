@@ -35,7 +35,7 @@ export const drawBarChart = (selector: any, data: number[]) => {
         .append("text")
         .attr("x", (_, i) => i * BAR_WIDTH_MULTIPLICATOR)
         .attr("y", HEIGHT)
-        .text(d => d)
+        .text((d, index) => ENTRIES_AMOUNT > 15 ? (index % 10 === 0 ? d : '') : d)
         .attr('text-anchor', 'middle')
         .attr('dominant-baseline', 'middle')
         .attr('transform', d => `translate(${BAR_WIDTH_MULTIPLICATOR/2}, 20)`);
